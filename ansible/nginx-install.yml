@@ -1,0 +1,12 @@
+---
+- name: Software installation of ninx 
+  hosts: ubuntu
+  tasks:
+      - name: updatin apt module
+        apt: 
+            upgrage= yes
+            update_cache= yes
+      - name: installing nginx service
+        apt:
+            name: nginx
+            state: present
