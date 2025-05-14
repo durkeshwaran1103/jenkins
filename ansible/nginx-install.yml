@@ -1,12 +1,14 @@
 ---
-- name: Software installation of ninx 
+- name: Software installation of nginx
   hosts: ubuntu
+  become: yes
   tasks:
-      - name: updatin apt module
-        apt: 
-            upgrage= yes
-            update_cache= yes
-      - name: installing nginx service
-        apt:
-            name: nginx
-            state: present
+    - name: Updating apt cache and upgrading packages
+      apt: 
+        upgrade: yes
+        update_cache: yes
+
+    - name: Installing nginx service
+      apt:
+        name: nginx
+        state: present
